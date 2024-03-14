@@ -1,0 +1,58 @@
+// Define an interface
+abstract class Printable {
+  void printInfo();
+}
+
+// Define a superclass
+class Animal {
+  String name;
+
+  Animal(this.name);
+
+  void makeSound() {
+    print("$name makes a sound");
+  }
+}
+
+// Define a subclass that implements the interface and overrides a method
+class Dog extends Animal implements Printable {
+  String breed;
+
+  Dog(String name, this.breed) : super(name);
+
+  @override
+  void makeSound() {
+    print("$name barks");
+  }
+
+  @override
+  void printInfo() {
+    print("Dog: $name, Breed: $breed");
+  }
+}
+
+// Define a method to read data from a file and initialize an instance of a class
+Dog readDogFromFile(String fileName) {
+  // In a real-world scenario, this method would read data from a file
+  // For simplicity, we'll just hardcode the data here
+  return Dog("Buddy", "Golden Retriever");
+}
+
+// Define a method that demonstrates the use of a loop
+void printNumbers(int n) {
+  for (int i = 1; i <= n; i++) {
+    print(i);
+  }
+}
+
+void main() {
+  // Create an instance of Dog initialized with data from a file
+  Dog myDog = readDogFromFile("dog_data.txt");
+
+  // Call methods on the dog instance
+  myDog.makeSound();
+  myDog.printInfo();
+
+  // Demonstrate the use of a loop
+  printNumbers(5);
+}
